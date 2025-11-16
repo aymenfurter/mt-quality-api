@@ -224,6 +224,11 @@ pytest --cov=src/gemba_score
 USE_REAL_AZURE_OPENAI=1 pytest tests/test_score_endpoint.py -v
 ```
 
+## Report
+The data can easily be visualized via Fabric [using SQL Mirroring](https://learn.microsoft.com/en-us/fabric/mirroring/sql-server)
+
+<img width="1568" height="878" alt="report" src="https://github.com/user-attachments/assets/3a704397-28d7-4b36-b0fb-139efa4dae6d" />
+
 ---
 
 <div align="center">
