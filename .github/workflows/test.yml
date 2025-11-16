@@ -1,0 +1,41 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .[dev]
+    
+    - name: Run tests with pytest
+      run: |
+        pytest --cov=src/gemba_score --cov-report=term-missing --cov-report=xml
+      env:
+        # Mock Azure OpenAI credentials for tests
+        AZURE_OPENAI_ENDPOINT: https://mock.openai.azure.com
+        AZURE_OPENAI_API_KEY: mock-key-for-testing
+        AZURE_OPENAI_DEPLOYMENT: gpt-4o-mini
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v4
+      if: always()
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: false
