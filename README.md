@@ -17,23 +17,23 @@
 
 ---
 
-## 📋 Overview
+## Overview
 
 GEMBA-Score API provides a standardized, automated way to evaluate translation quality using state-of-the-art LLMs. It exposes a REST API endpoint that accepts source and target texts, generates quality scores using multiple methodologies, and persists results to Azure SQL for auditing and analytics.
 
-## ✨ Features
+## Features
 
-- **🎯 Four Scoring Methods**: GEMBA-DA, GEMBA-MQM, GEMBA-ESA, and STRUCTURED-DA
-- **📊 Reference-Free Evaluation**: Score translations without reference texts
-- **💾 Persistent Storage**: All requests and scores saved to Azure SQL
+- **Four Scoring Methods**: GEMBA-DA, GEMBA-MQM, GEMBA-ESA, and STRUCTURED-DA
+- **Reference-Free Evaluation**: Score translations without reference texts
+- **Persistent Storage**: All requests and scores saved to Azure SQL
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **FastAPI** + SQLAlchemy (async) for the API and persistence layer
 - **Azure OpenAI** (via official SDK) for GEMBA scoring prompts
 - **Pytest** for automated testing with async support
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -72,7 +72,7 @@ Visit http://localhost:8000 for the web dashboard 📊
 
 ---
 
-## 📡 API Usage
+## API Usage
 
 ### Endpoint
 
@@ -125,7 +125,7 @@ curl -X POST "https://your-api.azurecontainerapps.io/api/v1/score" \
 
 ---
 
-## 🚢 Deployment
+## Deployment
 
 ### Automated Azure CLI flow
 
@@ -188,7 +188,7 @@ Need to customize the infrastructure further (e.g., private networking, custom s
 
 ---
 
-## 📊 Database Schema
+## Database Schema
 
 All translation requests are persisted to the `TranslationScores` table:
 
@@ -211,7 +211,7 @@ All translation requests are persisted to the `TranslationScores` table:
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -224,15 +224,7 @@ pytest --cov=src/gemba_score
 USE_REAL_AZURE_OPENAI=1 pytest tests/test_score_endpoint.py -v
 ```
 
-## Report
+## Reporting
 The data can easily be visualized via Fabric [using SQL Mirroring](https://learn.microsoft.com/en-us/fabric/mirroring/sql-server)
 
 <img width="1568" height="878" alt="report" src="https://github.com/user-attachments/assets/3a704397-28d7-4b36-b0fb-139efa4dae6d" />
-
----
-
-<div align="center">
-
-**Made with ❤️ for better translations**
-
-</div>
