@@ -170,7 +170,6 @@ Notes:
 
 - Ensure the Azure OpenAI endpoint and deployment you reference are already provisioned in the subscription you target.
 - If your tenant restricts SQL server creation in certain regions, set `AZURE_SQL_LOCATION` accordingly.
-- The script tags new SQL servers with `SecurityControl=Ignore` to satisfy MCAPS deny policies that require Azure AD-only authentication.
 - Azure Container Apps updates automatically restart the active revision so new secrets and env vars take effect.
 - The container image bundles Microsoft’s ODBC Driver 18 alongside `unixodbc`, so the app can connect to Azure SQL without extra configuration.
 - SQL admin passwords must meet Azure complexity requirements and should be quoted in the env file if they contain special characters.
